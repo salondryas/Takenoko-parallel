@@ -1,13 +1,13 @@
 package fr.cotedazur.univ.polytech.startingpoint.utilitaires;
 
+import fr.cotedazur.univ.polytech.startingpoint.plateau.Plateau;
+
 public abstract class Placable {
     protected Position position;
 
     public Placable(Position position) {
         this.position=position;
     }
-
-    public Placable(){}
 
     @Override
     public String toString() {
@@ -17,4 +17,6 @@ public abstract class Placable {
     public Position getPosition(){
         return position;
     }
+
+    public abstract void placer(Plateau plateau);
 }

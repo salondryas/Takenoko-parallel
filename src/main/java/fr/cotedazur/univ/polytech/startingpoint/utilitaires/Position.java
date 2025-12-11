@@ -52,4 +52,13 @@ public class Position {
     public Position add(Position p) {
         return new Position(this.q+p.q,this.r+p.r,this.s+p.s );
     }
+
+    // Rotation à gauche
+    public Position rotate60() {
+        return new Position(-r,-s,-q);
+    }
+    // Rotation à droite
+    public Position rotateMinus60() {
+        return new Position(-s,-q,-r);
+    }
 }
