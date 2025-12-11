@@ -1,6 +1,5 @@
 package fr.cotedazur.univ.polytech.startingpoint.plateau;
 
-import fr.cotedazur.univ.polytech.startingpoint.joueurs.Joueur;
 import fr.cotedazur.univ.polytech.startingpoint.utilitaires.Couleur;
 import fr.cotedazur.univ.polytech.startingpoint.utilitaires.Position;
 
@@ -23,12 +22,7 @@ public class Plateau {
 
     // Permet de poser une tuile
     public void placerParcelle(Parcelle parcelle, Position position) {
-        //if (isPositionDisponible(position)) {
-            //parcelle = new Parcelle(position, parcelle.getCouleur()); // Mise à jour pos
-            parcelles.put(position, parcelle);
-            //return true;
-        //}
-        //return false;
+        parcelles.put(position, parcelle);
     }
 
     public Parcelle getParcelle(Position position) {
@@ -46,7 +40,7 @@ public class Plateau {
         // On regarde chaque parcelle déjà posée
         for (Position posOccupee : parcelles.keySet()) {
             // On regarde ses 6 voisins via ton Enum
-            for (ParcellesVoisinesOrigine direction : ParcellesVoisinesOrigine.values()) {
+            for (PositionsVoisinesOrigine direction : PositionsVoisinesOrigine.values()) {
                 Position voisinPotentiel = posOccupee.add(direction.getPositionVoisine());
 
                 // Si la place est libre et qu'on ne l'a pas déjà listée

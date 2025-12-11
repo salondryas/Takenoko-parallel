@@ -4,12 +4,14 @@ import fr.cotedazur.univ.polytech.startingpoint.utilitaires.Couleur;
 import fr.cotedazur.univ.polytech.startingpoint.utilitaires.Placable;
 import fr.cotedazur.univ.polytech.startingpoint.utilitaires.Position;
 
+import java.util.Objects;
+
 public class Parcelle extends Placable {
     private Couleur couleur;
 
-    //constructeur pour la pioche des parcelles
+    // Constructeur pour la pioche des parcelles, elles ont une position null si elles sont dans l'inventaire d'un joueur
     public Parcelle(Couleur couleur){
-        super();
+        super(null);
         this.couleur = couleur;
     }
 
@@ -27,5 +29,24 @@ public class Parcelle extends Placable {
     public String toString() {
         if (position==null) return couleur.toString();
         return couleur + " : " + super.toString();
+    }
+
+    public void placer(Plateau plateau) {
+        if (position == null) {
+            plateau.placerParcelle(this, position);
+        }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) return true;
+        if ( o == null || o.getClass() != this.getClass()) return false;
+        Parcelle parcelle = (Parcelle) o;
+        return parcelle.getPosition().equals(this.getPosition()) && parcelle.getCouleur().equals(couleur);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(position,couleur);
     }
 }
