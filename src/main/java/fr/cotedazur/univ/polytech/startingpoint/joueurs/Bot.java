@@ -44,17 +44,14 @@ public class Bot {
         Position positionChoisie = coupsPossibles.get(random.nextInt(coupsPossibles.size()));
 
         // 4. Poser la parcelle sur le plateau
-        // Important : On crée une nouvelle instance de Parcelle avec la bonne position
-        // car celle piochée n'avait pas de position définie
-        Parcelle parcelleAPoser = new Parcelle(positionChoisie, parcellePiochee.getCouleur());
-        plateau.placerParcelle(parcelleAPoser, positionChoisie);
+        parcellePiochee.placer(plateau);
 
         // 5. Calculer le score (Règle Milestone 1 : adjacence couleur)
-        int pointsGagnes = moteurObjectifs.calculerPointsPose(plateau, positionChoisie, parcelleAPoser.getCouleur());
+        int pointsGagnes = moteurObjectifs.calculerPointsPose(plateau, positionChoisie, parcellePiochee.getCouleur());
         this.score += pointsGagnes;
 
         // Log pour suivre la partie
-        System.out.println(nom + " pose " + parcelleAPoser + " en " + positionChoisie +
+        System.out.println(nom + " pose " + parcellePiochee + " en " + positionChoisie +
                 " et gagne " + pointsGagnes + " points. (Score Total: " + score + ")");
     }
 
