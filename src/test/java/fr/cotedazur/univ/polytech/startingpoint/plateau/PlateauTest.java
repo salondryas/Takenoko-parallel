@@ -62,4 +62,29 @@ class PlateauTest {
         // On refait le test avec une case en plus sur le plateau (et donc une case en moins de disponible)
         assertEquals(positionsAdjacentesProches, plateau.getEmplacementsDisponibles());
     }
+    @Test
+    void testRegleDesDeuxVoisins() {
+        Plateau p = new Plateau();
+        // L'étang est en 0,0,0 par défaut (virtuellement)
+
+        // 1. On pose une tuile adjacente à l'étang (1, -1, 0) -> DOIT MARCHER
+        Position pos1 = new Position(1, -1, 0);
+        assertTrue(p.getEmplacementsDisponibles().contains(pos1), "Doit pouvoir poser près de l'étang");
+        p.placerParcelle(new Parcelle(Couleur.VERT), pos1);
+
+        // 2. On essaie de poser une tuile qui continue la ligne (2, -2, 0)
+        // Elle toucherait pos1, mais pas l'étang. Elle n'aurait qu'un seul voisin.
+        // -> DOIT ÊTRE INTERDIT
+        Position posLoin = new Position(2, -2, 0);
+        assertFalse(p.getEmplacementsDisponibles().contains(posLoin), "Interdit de poser avec 1 seul voisin si loin de l'étang");
+
+        // 3. On pose une deuxième tuile près de l'étang (0, -1, 1)
+        Position pos2 = new Position(0, -1, 1);
+        p.placerParcelle(new Parcelle(Couleur.ROSE), pos2);
+
+        // 4. Maintenant, la position (1, -2, 1) touche pos1 ET pos2.
+        // -> DOIT MARCHER (2 voisins)
+        Position posCoin = new Position(1, -2, 1);
+        assertTrue(p.getEmplacementsDisponibles().contains(posCoin), "Doit pouvoir poser si 2 voisins");
+    }
 }
