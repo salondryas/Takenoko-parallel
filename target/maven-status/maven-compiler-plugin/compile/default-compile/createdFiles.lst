@@ -15,12 +15,12 @@ fr\cotedazur\univ\polytech\startingpoint\objectifs\ObjectifPoseur.class
 fr\cotedazur\univ\polytech\startingpoint\plateau\Parcelle.class
 fr\cotedazur\univ\polytech\startingpoint\utilitaires\Couleur.class
 fr\cotedazur\univ\polytech\startingpoint\objectifs\ObjectifPanda.class
+fr\cotedazur\univ\polytech\startingpoint\plateau\Jardinier.class
 fr\cotedazur\univ\polytech\startingpoint\actions\PoserParcelle.class
 fr\cotedazur\univ\polytech\startingpoint\actions\DeplacerPanda.class
 fr\cotedazur\univ\polytech\startingpoint\GameEngine.class
 fr\cotedazur\univ\polytech\startingpoint\actions\Action.class
 fr\cotedazur\univ\polytech\startingpoint\objectifs\ObjectifJardinier.class
 fr\cotedazur\univ\polytech\startingpoint\plateau\Bambou.class
-fr\cotedazur\univ\polytech\startingpoint\plateau\Jardiner.class
 fr\cotedazur\univ\polytech\startingpoint\objectifs\ObjectifParcelleForme.class
 fr\cotedazur\univ\polytech\startingpoint\plateau\Plateau.class
